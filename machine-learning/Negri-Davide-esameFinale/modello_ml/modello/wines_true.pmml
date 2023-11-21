@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
+	<Header>
+		<Application name="SkLearn2PMML package" version="0.99.1"/>
+		<Timestamp>2023-11-13T12:42:39Z</Timestamp>
+	</Header>
+	<MiningBuildTask>
+		<Extension name="repr">PMMLPipeline(steps=[('slc', StandardScaler()),
+       ('poly', PolynomialFeatures()),
+       ('ridge', Ridge(alpha=10.0, fit_intercept=False))])</Extension>
+	</MiningBuildTask>
+	<DataDictionary>
+		<DataField name="quality" optype="continuous" dataType="double"/>
+		<DataField name="fixed_acidity" optype="continuous" dataType="double"/>
+		<DataField name="volatile_acidity" optype="continuous" dataType="double"/>
+		<DataField name="citric_acid" optype="continuous" dataType="double"/>
+		<DataField name="residual_sugar" optype="continuous" dataType="double"/>
+		<DataField name="chlorides" optype="continuous" dataType="double"/>
+		<DataField name="free_sulfur_dioxide" optype="continuous" dataType="double"/>
+		<DataField name="total_sulfur_dioxide" optype="continuous" dataType="double"/>
+		<DataField name="density" optype="continuous" dataType="double"/>
+		<DataField name="pH" optype="continuous" dataType="double"/>
+		<DataField name="sulphates" optype="continuous" dataType="double"/>
+		<DataField name="alcohol" optype="continuous" dataType="double"/>
+		<DataField name="wine_type" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<RegressionModel functionName="regression" algorithmName="sklearn.linear_model._ridge.Ridge">
+		<MiningSchema>
+			<MiningField name="quality" usageType="target"/>
+			<MiningField name="fixed_acidity"/>
+			<MiningField name="volatile_acidity"/>
+			<MiningField name="citric_acid"/>
+			<MiningField name="residual_sugar"/>
+			<MiningField name="chlorides"/>
+			<MiningField name="free_sulfur_dioxide"/>
+			<MiningField name="total_sulfur_dioxide"/>
+			<MiningField name="density"/>
+			<MiningField name="pH"/>
+			<MiningField name="sulphates"/>
+			<MiningField name="alcohol"/>
+			<MiningField name="wine_type"/>
+		</MiningSchema>
+		<LocalTransformations>
+			<DerivedField name="standardScaler(fixed_acidity)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="fixed_acidity"/>
+						<Constant dataType="double">7.2134981720223195</Constant>
+					</Apply>
+					<Constant dataType="double">1.2997472855144425</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(volatile_acidity)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="volatile_acidity"/>
+						<Constant dataType="double">0.3417635174138926</Constant>
+					</Apply>
+					<Constant dataType="double">0.1665467281396193</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(citric_acid)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="citric_acid"/>
+						<Constant dataType="double">0.3180488743505869</Constant>
+					</Apply>
+					<Constant dataType="double">0.1462206953291066</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(residual_sugar)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="residual_sugar"/>
+						<Constant dataType="double">5.394775832210891</Constant>
+					</Apply>
+					<Constant dataType="double">4.764333177890577</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(chlorides)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="chlorides"/>
+						<Constant dataType="double">0.056348855108716574</Constant>
+					</Apply>
+					<Constant dataType="double">0.03545606686645627</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(free_sulfur_dioxide)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="free_sulfur_dioxide"/>
+						<Constant dataType="double">30.35328073888782</Constant>
+					</Apply>
+					<Constant dataType="double">17.76180442611886</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(total_sulfur_dioxide)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="total_sulfur_dioxide"/>
+						<Constant dataType="double">115.12401385414663</Constant>
+					</Apply>
+					<Constant dataType="double">56.247111953004996</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(density)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="density"/>
+						<Constant dataType="double">0.9946929978833942</Constant>
+					</Apply>
+					<Constant dataType="double">0.0030189548005776544</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(pH)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="pH"/>
+						<Constant dataType="double">3.2197055993842603</Constant>
+					</Apply>
+					<Constant dataType="double">0.16116903210950204</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(sulphates)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="sulphates"/>
+						<Constant dataType="double">0.5317067538964787</Constant>
+					</Apply>
+					<Constant dataType="double">0.149021025162662</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(alcohol)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="alcohol"/>
+						<Constant dataType="double">10.49032839458662</Constant>
+					</Apply>
+					<Constant dataType="double">1.1906752758090515</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(wine_type)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="wine_type"/>
+						<Constant dataType="double">0.7496632672695785</Constant>
+					</Apply>
+					<Constant dataType="double">0.43320694012940164</Constant>
+				</Apply>
+			</DerivedField>
+		</LocalTransformations>
+		<RegressionTable intercept="3.8958692372764223">
+			<NumericPredictor name="standardScaler(fixed_acidity)" coefficient="0.16938594690666617"/>
+			<NumericPredictor name="standardScaler(volatile_acidity)" coefficient="-0.28172682115792713"/>
+			<NumericPredictor name="standardScaler(citric_acid)" coefficient="0.004774523496934396"/>
+			<NumericPredictor name="standardScaler(residual_sugar)" coefficient="0.3944381811227629"/>
+			<NumericPredictor name="standardScaler(chlorides)" coefficient="-0.0884789669907838"/>
+			<NumericPredictor name="standardScaler(free_sulfur_dioxide)" coefficient="0.1091938033627764"/>
+			<NumericPredictor name="standardScaler(total_sulfur_dioxide)" coefficient="-0.029236415345781547"/>
+			<NumericPredictor name="standardScaler(density)" coefficient="-0.48706616208946785"/>
+			<NumericPredictor name="standardScaler(pH)" coefficient="0.07090804076804602"/>
+			<NumericPredictor name="standardScaler(sulphates)" coefficient="0.1045713388475149"/>
+			<NumericPredictor name="standardScaler(alcohol)" coefficient="0.13418694305951873"/>
+			<NumericPredictor name="standardScaler(wine_type)" coefficient="1.9084813339971014"/>
+			<NumericPredictor name="standardScaler(fixed_acidity)" exponent="2" coefficient="-0.05256817491859368"/>
+			<NumericPredictor name="standardScaler(volatile_acidity)" exponent="2" coefficient="0.01402525443411895"/>
+			<NumericPredictor name="standardScaler(citric_acid)" exponent="2" coefficient="-0.01885264840670312"/>
+			<NumericPredictor name="standardScaler(residual_sugar)" exponent="2" coefficient="-0.15695395316665492"/>
+			<NumericPredictor name="standardScaler(chlorides)" exponent="2" coefficient="-0.002097937509247269"/>
+			<NumericPredictor name="standardScaler(free_sulfur_dioxide)" exponent="2" coefficient="-0.009921047169446983"/>
+			<NumericPredictor name="standardScaler(total_sulfur_dioxide)" exponent="2" coefficient="-0.02599615792659686"/>
+			<NumericPredictor name="standardScaler(density)" exponent="2" coefficient="0.047104966195822044"/>
+			<NumericPredictor name="standardScaler(pH)" exponent="2" coefficient="0.017994951647409815"/>
+			<NumericPredictor name="standardScaler(sulphates)" exponent="2" coefficient="0.0019212804752665475"/>
+			<NumericPredictor name="standardScaler(alcohol)" exponent="2" coefficient="0.029369877276199767"/>
+			<NumericPredictor name="standardScaler(wine_type)" exponent="2" coefficient="1.6960998373201785"/>
+			<PredictorTerm name="standardScaler(fixed_acidity):standardScaler(volatile_acidity)" coefficient="-0.012005257338327113">
+				<FieldRef field="standardScaler(fixed_acidity)"/>
+				<FieldRef field="standardScaler(volatile_acidity)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(fixed_acidity):standardScaler(citric_acid)" coefficient="0.05489583736388163">
+				<FieldRef field="standardScaler(fixed_acidity)"/>
+				<FieldRef field="standardScaler(citric_acid)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(fixed_acidity):standardScaler(residual_sugar)" coefficient="-0.05770398434075324">
+				<FieldRef field="standardScaler(fixed_acidity)"/>
+				<FieldRef field="standardScaler(residual_sugar)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(fixed_acidity):standardScaler(chlorides)" coefficient="-0.10288528794358211">
+				<FieldRef field="standardScaler(fixed_acidity)"/>
+				<FieldRef field="standardScaler(chlorides)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(fixed_acidity):standardScaler(free_sulfur_dioxide)" coefficient="-0.015404912804355322">
+				<FieldRef field="standardScaler(fixed_acidity)"/>
+				<FieldRef field="standardScaler(free_sulfur_dioxide)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(fixed_acidity):standardScaler(total_sulfur_dioxide)" coefficient="0.05267337430582392">
+				<FieldRef field="standardScaler(fixed_acidity)"/>
+				<FieldRef field="standardScaler(total_sulfur_dioxide)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(fixed_acidity):standardScaler(density)" coefficient="0.03572487329208408">
+				<FieldRef field="standardScaler(fixed_acidity)"/>
+				<FieldRef field="standardScaler(density)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(fixed_acidity):standardScaler(pH)" coefficient="0.02975269758558271">
+				<FieldRef field="standardScaler(fixed_acidity)"/>
+				<FieldRef field="standardScaler(pH)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(fixed_acidity):standardScaler(sulphates)" coefficient="0.023453358736821358">
+				<FieldRef field="standardScaler(fixed_acidity)"/>
+				<FieldRef field="standardScaler(sulphates)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(fixed_acidity):standardScaler(alcohol)" coefficient="-0.013487487663463723">
+				<FieldRef field="standardScaler(fixed_acidity)"/>
+				<FieldRef field="standardScaler(alcohol)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(fixed_acidity):standardScaler(wine_type)" coefficient="-0.018394507640795338">
+				<FieldRef field="standardScaler(fixed_acidity)"/>
+				<FieldRef field="standardScaler(wine_type)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(volatile_acidity):standardScaler(citric_acid)" coefficient="0.02606549179472346">
+				<FieldRef field="standardScaler(volatile_acidity)"/>
+				<FieldRef field="standardScaler(citric_acid)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(volatile_acidity):standardScaler(residual_sugar)" coefficient="-0.030351390229275695">
+				<FieldRef field="standardScaler(volatile_acidity)"/>
+				<FieldRef field="standardScaler(residual_sugar)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(volatile_acidity):standardScaler(chlorides)" coefficient="7.007215483245539E-5">
+				<FieldRef field="standardScaler(volatile_acidity)"/>
+				<FieldRef field="standardScaler(chlorides)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(volatile_acidity):standardScaler(free_sulfur_dioxide)" coefficient="0.016285791263267325">
+				<FieldRef field="standardScaler(volatile_acidity)"/>
+				<FieldRef field="standardScaler(free_sulfur_dioxide)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(volatile_acidity):standardScaler(total_sulfur_dioxide)" coefficient="0.06032956033756313">
+				<FieldRef field="standardScaler(volatile_acidity)"/>
+				<FieldRef field="standardScaler(total_sulfur_dioxide)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(volatile_acidity):standardScaler(density)" coefficient="-0.04425297748925499">
+				<FieldRef field="standardScaler(volatile_acidity)"/>
+				<FieldRef field="standardScaler(density)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(volatile_acidity):standardScaler(pH)" coefficient="0.006903693941194287">
+				<FieldRef field="standardScaler(volatile_acidity)"/>
+				<FieldRef field="standardScaler(pH)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(volatile_acidity):standardScaler(sulphates)" coefficient="-0.002591872098114189">
+				<FieldRef field="standardScaler(volatile_acidity)"/>
+				<FieldRef field="standardScaler(sulphates)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(volatile_acidity):standardScaler(alcohol)" coefficient="0.07009591941507773">
+				<FieldRef field="standardScaler(volatile_acidity)"/>
+				<FieldRef field="standardScaler(alcohol)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(volatile_acidity):standardScaler(wine_type)" coefficient="-0.11039877561980005">
+				<FieldRef field="standardScaler(volatile_acidity)"/>
+				<FieldRef field="standardScaler(wine_type)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(citric_acid):standardScaler(residual_sugar)" coefficient="0.004612373196656311">
+				<FieldRef field="standardScaler(citric_acid)"/>
+				<FieldRef field="standardScaler(residual_sugar)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(citric_acid):standardScaler(chlorides)" coefficient="0.03250553916519383">
+				<FieldRef field="standardScaler(citric_acid)"/>
+				<FieldRef field="standardScaler(chlorides)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(citric_acid):standardScaler(free_sulfur_dioxide)" coefficient="0.029437561837241197">
+				<FieldRef field="standardScaler(citric_acid)"/>
+				<FieldRef field="standardScaler(free_sulfur_dioxide)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(citric_acid):standardScaler(total_sulfur_dioxide)" coefficient="-0.005572672231492908">
+				<FieldRef field="standardScaler(citric_acid)"/>
+				<FieldRef field="standardScaler(total_sulfur_dioxide)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(citric_acid):standardScaler(density)" coefficient="-0.06863455468800075">
+				<FieldRef field="standardScaler(citric_acid)"/>
+				<FieldRef field="standardScaler(density)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(citric_acid):standardScaler(pH)" coefficient="0.02454727941210825">
+				<FieldRef field="standardScaler(citric_acid)"/>
+				<FieldRef field="standardScaler(pH)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(citric_acid):standardScaler(sulphates)" coefficient="-0.01520814069162782">
+				<FieldRef field="standardScaler(citric_acid)"/>
+				<FieldRef field="standardScaler(sulphates)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(citric_acid):standardScaler(alcohol)" coefficient="0.017782256433093425">
+				<FieldRef field="standardScaler(citric_acid)"/>
+				<FieldRef field="standardScaler(alcohol)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(citric_acid):standardScaler(wine_type)" coefficient="0.05614687508462362">
+				<FieldRef field="standardScaler(citric_acid)"/>
+				<FieldRef field="standardScaler(wine_type)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(residual_sugar):standardScaler(chlorides)" coefficient="-0.09028990648808174">
+				<FieldRef field="standardScaler(residual_sugar)"/>
+				<FieldRef field="standardScaler(chlorides)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(residual_sugar):standardScaler(free_sulfur_dioxide)" coefficient="-0.11258244381502151">
+				<FieldRef field="standardScaler(residual_sugar)"/>
+				<FieldRef field="standardScaler(free_sulfur_dioxide)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(residual_sugar):standardScaler(total_sulfur_dioxide)" coefficient="0.13704002694500214">
+				<FieldRef field="standardScaler(residual_sugar)"/>
+				<FieldRef field="standardScaler(total_sulfur_dioxide)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(residual_sugar):standardScaler(density)" coefficient="0.15219077211339307">
+				<FieldRef field="standardScaler(residual_sugar)"/>
+				<FieldRef field="standardScaler(density)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(residual_sugar):standardScaler(pH)" coefficient="-0.08274113983016264">
+				<FieldRef field="standardScaler(residual_sugar)"/>
+				<FieldRef field="standardScaler(pH)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(residual_sugar):standardScaler(sulphates)" coefficient="-0.04688157261812846">
+				<FieldRef field="standardScaler(residual_sugar)"/>
+				<FieldRef field="standardScaler(sulphates)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(residual_sugar):standardScaler(alcohol)" coefficient="0.07169607961118114">
+				<FieldRef field="standardScaler(residual_sugar)"/>
+				<FieldRef field="standardScaler(alcohol)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(residual_sugar):standardScaler(wine_type)" coefficient="0.09809171633410443">
+				<FieldRef field="standardScaler(residual_sugar)"/>
+				<FieldRef field="standardScaler(wine_type)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(chlorides):standardScaler(free_sulfur_dioxide)" coefficient="-0.0034667250375916303">
+				<FieldRef field="standardScaler(chlorides)"/>
+				<FieldRef field="standardScaler(free_sulfur_dioxide)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(chlorides):standardScaler(total_sulfur_dioxide)" coefficient="0.02018216044724398">
+				<FieldRef field="standardScaler(chlorides)"/>
+				<FieldRef field="standardScaler(total_sulfur_dioxide)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(chlorides):standardScaler(density)" coefficient="0.08791754321036613">
+				<FieldRef field="standardScaler(chlorides)"/>
+				<FieldRef field="standardScaler(density)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(chlorides):standardScaler(pH)" coefficient="-0.0701278926315929">
+				<FieldRef field="standardScaler(chlorides)"/>
+				<FieldRef field="standardScaler(pH)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(chlorides):standardScaler(sulphates)" coefficient="-0.045654548435336506">
+				<FieldRef field="standardScaler(chlorides)"/>
+				<FieldRef field="standardScaler(sulphates)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(chlorides):standardScaler(alcohol)" coefficient="-0.018622960310792355">
+				<FieldRef field="standardScaler(chlorides)"/>
+				<FieldRef field="standardScaler(alcohol)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(chlorides):standardScaler(wine_type)" coefficient="-0.06518257338765868">
+				<FieldRef field="standardScaler(chlorides)"/>
+				<FieldRef field="standardScaler(wine_type)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(free_sulfur_dioxide):standardScaler(total_sulfur_dioxide)" coefficient="-0.0542268315350112">
+				<FieldRef field="standardScaler(free_sulfur_dioxide)"/>
+				<FieldRef field="standardScaler(total_sulfur_dioxide)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(free_sulfur_dioxide):standardScaler(density)" coefficient="0.1320701832287153">
+				<FieldRef field="standardScaler(free_sulfur_dioxide)"/>
+				<FieldRef field="standardScaler(density)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(free_sulfur_dioxide):standardScaler(pH)" coefficient="0.013602446626290754">
+				<FieldRef field="standardScaler(free_sulfur_dioxide)"/>
+				<FieldRef field="standardScaler(pH)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(free_sulfur_dioxide):standardScaler(sulphates)" coefficient="0.06066412720040977">
+				<FieldRef field="standardScaler(free_sulfur_dioxide)"/>
+				<FieldRef field="standardScaler(sulphates)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(free_sulfur_dioxide):standardScaler(alcohol)" coefficient="0.11071578455105992">
+				<FieldRef field="standardScaler(free_sulfur_dioxide)"/>
+				<FieldRef field="standardScaler(alcohol)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(free_sulfur_dioxide):standardScaler(wine_type)" coefficient="0.1478130952374715">
+				<FieldRef field="standardScaler(free_sulfur_dioxide)"/>
+				<FieldRef field="standardScaler(wine_type)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(total_sulfur_dioxide):standardScaler(density)" coefficient="-0.17114809159842487">
+				<FieldRef field="standardScaler(total_sulfur_dioxide)"/>
+				<FieldRef field="standardScaler(density)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(total_sulfur_dioxide):standardScaler(pH)" coefficient="0.018488747444835276">
+				<FieldRef field="standardScaler(total_sulfur_dioxide)"/>
+				<FieldRef field="standardScaler(pH)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(total_sulfur_dioxide):standardScaler(sulphates)" coefficient="-0.10090302724765132">
+				<FieldRef field="standardScaler(total_sulfur_dioxide)"/>
+				<FieldRef field="standardScaler(sulphates)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(total_sulfur_dioxide):standardScaler(alcohol)" coefficient="-0.07084645393492794">
+				<FieldRef field="standardScaler(total_sulfur_dioxide)"/>
+				<FieldRef field="standardScaler(alcohol)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(total_sulfur_dioxide):standardScaler(wine_type)" coefficient="0.08954365126188729">
+				<FieldRef field="standardScaler(total_sulfur_dioxide)"/>
+				<FieldRef field="standardScaler(wine_type)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(density):standardScaler(pH)" coefficient="-0.05864442072329552">
+				<FieldRef field="standardScaler(density)"/>
+				<FieldRef field="standardScaler(pH)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(density):standardScaler(sulphates)" coefficient="0.0023447340652067725">
+				<FieldRef field="standardScaler(density)"/>
+				<FieldRef field="standardScaler(sulphates)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(density):standardScaler(alcohol)" coefficient="-0.01652990956685938">
+				<FieldRef field="standardScaler(density)"/>
+				<FieldRef field="standardScaler(alcohol)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(density):standardScaler(wine_type)" coefficient="-0.1927160940300597">
+				<FieldRef field="standardScaler(density)"/>
+				<FieldRef field="standardScaler(wine_type)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(pH):standardScaler(sulphates)" coefficient="0.04025782563965033">
+				<FieldRef field="standardScaler(pH)"/>
+				<FieldRef field="standardScaler(sulphates)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(pH):standardScaler(alcohol)" coefficient="-0.031989305866806844">
+				<FieldRef field="standardScaler(pH)"/>
+				<FieldRef field="standardScaler(alcohol)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(pH):standardScaler(wine_type)" coefficient="0.11080713979873567">
+				<FieldRef field="standardScaler(pH)"/>
+				<FieldRef field="standardScaler(wine_type)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(sulphates):standardScaler(alcohol)" coefficient="-0.005037968347008248">
+				<FieldRef field="standardScaler(sulphates)"/>
+				<FieldRef field="standardScaler(alcohol)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(sulphates):standardScaler(wine_type)" coefficient="0.015433171174560775">
+				<FieldRef field="standardScaler(sulphates)"/>
+				<FieldRef field="standardScaler(wine_type)"/>
+			</PredictorTerm>
+			<PredictorTerm name="standardScaler(alcohol):standardScaler(wine_type)" coefficient="-0.12681785231525983">
+				<FieldRef field="standardScaler(alcohol)"/>
+				<FieldRef field="standardScaler(wine_type)"/>
+			</PredictorTerm>
+		</RegressionTable>
+	</RegressionModel>
+</PMML>
