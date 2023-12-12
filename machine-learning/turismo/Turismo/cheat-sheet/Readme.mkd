@@ -1,0 +1,90 @@
+# SQLite Database Management Scripts
+
+## 1. guardaTabelle.py
+
+### Overview
+
+The `guardaTabelle.py` script provides a quick overview of tables and their structures within an SQLite database. It prints the names of all tables along with their column names.
+
+### Prerequisites
+
+1. Ensure Python is installed on your system.
+2. Specify the correct path and name of your SQLite database file in the script (`turismo/my_database.db` in this example).
+
+### Usage
+
+1. **Run the Script:**
+   - Execute the script in a Python environment:
+     ```bash
+     python guardaTabelle.py
+     ```
+
+2. **View Table Structure:**
+   - The script connects to the specified SQLite database and prints the names of all tables along with their column names.
+
+3. **Example Output:**
+   - The output will resemble:
+     ```
+     Table: table_name
+       Column: column1
+       Column: column2
+       ...
+     Table: another_table
+       Column: columnA
+       Column: columnB
+       ...
+     ```
+
+4. **Closing:**
+   - The script automatically closes the cursor and connection after execution.
+
+## 2. dati.py
+
+### Overview
+
+The `dati.py` script connects to an SQLite database and retrieves all data from the `regioni` table. It prints the results, providing a simple way to view the data stored in the specified table.
+
+### Prerequisites
+
+1. Ensure Python is installed on your system.
+2. Specify the correct path and name of your SQLite database file in the script (`my_database.db` in this example).
+
+### Usage
+
+1. **Run the Script:**
+   - Execute the script in a Python environment:
+     ```bash
+     python dati.py
+     ```
+
+2. **View Data:**
+   - The script connects to the SQLite database, executes a query to select all data from the `regioni` table, and prints the results.
+
+3. **Example Output:**
+   - The output will display the rows of data retrieved.
+
+## 3. cancellaDati.py
+
+### Overview
+
+The `cancellaDati.py` script connects to an SQLite database and deletes all data from the `arrivi` table.
+
+### Prerequisites
+
+1. Ensure Python is installed on your system.
+2. Specify the correct path and name of your SQLite database file in the script (`turismo/my_database.db` in this example).
+
+### Usage
+
+1. **Run the Script:**
+   - Execute the script in a Python environment:
+     ```bash
+     python cancellaDati.py
+     ```
+
+2. **Delete Data:**
+   - The script connects to the SQLite database and executes an SQL statement to delete all data from the `arrivi` table.
+
+3. **Closing:**
+   - The script automatically commits the deletion and closes the cursor and connection.
+
