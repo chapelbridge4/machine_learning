@@ -1,0 +1,65 @@
+# FastAPI SQLite CRUD Operations
+
+## Overview
+
+This project demonstrates basic CRUD (Create, Read, Update, Delete) operations using FastAPI with SQLite for regions, arrivals, and presences.
+
+## Setup
+
+1. Install FastAPI and Uvicorn:
+
+    ```bash
+    pip install fastapi uvicorn
+    ```
+
+2. Run the FastAPI application:
+
+    ```bash
+    uvicorn main:app --reload
+    ```
+
+## `main.py`
+
+### Overview
+
+The `main.py` script sets up a FastAPI application and defines API routes for regions, arrivals, and presences. It utilizes SQLite for data storage and performs CRUD operations.
+
+### Prerequisites
+
+1. Ensure Python is installed on your system.
+2. Install required dependencies using:
+
+    ```bash
+    pip install fastapi uvicorn pydantic
+    ```
+
+### Usage
+
+1. Run the FastAPI application:
+
+    ```bash
+    uvicorn main:app --reload
+    ```
+
+2. Access the API documentation at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) to test the defined routes.
+
+3. Available routes:
+
+    - `/regione/{regione_id}`: Get, create, update, or delete region data by region ID.
+    - `/crea_regione`: Create a new region.
+    - `/aggiorna_regione/{regione_id}`: Update region data by region ID.
+    - `/elimina_regione`: Delete a region.
+
+   Similar routes exist for arrivals (`/arrivi`) and presences (`/presenze`).
+
+## `test_db.py`
+
+### Overview
+
+The `test_db.py` script defines a `TestDb` class for simplified interaction with an SQLite database. It provides methods for:
+
+- Creating tables.
+- Reading data.
+- Updating data.
+- Deleting data.
+- Shutting down the database connection.
