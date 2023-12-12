@@ -1,0 +1,61 @@
+# Tourism Data Analysis Script
+
+This Python script is designed for analyzing tourism data stored in an SQLite database. The script utilizes the `sqlite3`, `pandas`, and `matplotlib` libraries to extract, process, and visualize tourism-related information.
+
+## Prerequisites
+Before running the script, ensure the following:
+
+1. **SQLite Database:**
+   - Create an SQLite database containing tables named `presenze` and `arrivi`.
+   - Adjust the `database_path` variable in the script to match the path and name of your SQLite database file.
+
+2. **Python Libraries:**
+   - Install the necessary Python libraries using:
+     ```bash
+     pip install pandas matplotlib
+     ```
+
+## Usage
+
+1. **Run the Script:**
+   - Execute the script in a Python environment:
+     ```bash
+     python tourism_analysis_script.py
+     ```
+
+2. **Data Analysis and Visualization:**
+   - The script connects to the SQLite database and retrieves data from the `presenze` and `arrivi` tables.
+   - It then creates Pandas DataFrames for further analysis and visualization.
+   - Descriptive statistics and visualizations (histograms, box plots, correlation matrices, and scatter plots) are generated to provide insights into the tourism data.
+
+## Script Contents
+
+1. **Database Connection:**
+   - Establishes a connection to the SQLite database.
+
+2. **Data Retrieval:**
+   - Fetches data from the `presenze` and `arrivi` tables.
+
+3. **DataFrames Creation:**
+   - Constructs Pandas DataFrames (`df_presenze` and `df_arrivi`) from the retrieved data.
+
+4. **Descriptive Statistics:**
+   - Prints descriptive statistics for both DataFrames.
+
+5. **Histograms:**
+   - Generates histograms to visualize the distribution of tourism data.
+
+6. **Box Plots:**
+   - Produces box plots for a more detailed view of the data distribution.
+
+7. **Correlation Matrix:**
+   - Calculates and displays the correlation matrix for numeric columns.
+
+8. **Scatter Plot:**
+   - Displays a scatter plot to explore the relationship between region and tourism data.
+
+9. **Data Segmentation:**
+   - Segments the data by sector and provides descriptive statistics for each sector.
+
+## Conclusion
+This script offers a comprehensive analysis of tourism data, providing visualizations and insights into the distribution, correlation, and segmentation of the data. Customize the script to match your specific database schema and adapt it to evolving analysis needs.
