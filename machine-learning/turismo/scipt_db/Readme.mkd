@@ -1,0 +1,48 @@
+# Tourism Data Processing Scripts
+
+These Python scripts are designed for processing and analyzing tourism data stored in an SQLite database. There are four scripts in total, each focusing on a specific aspect: `anni` (years), `arrivi` (arrivals), `presenze` (stays), and `regioni` (regions).
+
+## Prerequisites
+Before running the scripts, ensure the following:
+
+1. **SQLite Database:**
+   - Create an SQLite database with the necessary tables.
+   - Adjust the `database_path` variable in each script to match the path and name of your SQLite database file.
+
+2. **Python Libraries:**
+   - Install the necessary Python libraries using:
+     ```bash
+     pip install pandas
+     ```
+
+## Scripts
+
+### anni_script.py
+
+1. **Description:**
+   - This script updates the `anni` (years) table in the database by extracting distinct years from a specified data table (`Arrivi_negli_alberghi_in_Italia_per_regione`) and inserts them into the `anni` table.
+
+2. **Usage:**
+   - Execute the script in a Python environment:
+     ```bash
+     python anni_script.py
+     ```
+
+### arrivi_script.py, presenze_script.py, regioni_script.py
+
+1. **Description:**
+   - These scripts perform a similar operation to the `anni_script.py` but focus on different aspects of tourism data: arrivals (`arrivi`), stays (`presenze`), and regions (`regioni`).
+
+2. **Usage:**
+   - Execute each script in a Python environment:
+     ```bash
+     python arrivi_script.py
+     python presenze_script.py
+     python regioni_script.py
+     ```
+
+3. **Additional Notes:**
+   - Each script connects to the SQLite database, extracts relevant data, updates the respective table, and prints the results.
+
+## Conclusion
+These scripts provide a modular approach to updating and managing tourism-related data in your SQLite database. Customize the scripts as needed for your specific data and database structure. Ensure that the prerequisite tables exist before running the scripts, and adjust the paths accordingly.
