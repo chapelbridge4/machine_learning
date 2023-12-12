@@ -1,0 +1,58 @@
+# Wine Quality Database Setup
+
+## Overview
+
+This script automates the setup of a SQLite database for storing wine quality data. It reads wine data from two CSV files, renames tables dynamically, adds a primary key column, and applies a naming convention to the tables. The resulting database is ready for further analysis.
+
+## Prerequisites
+
+- Python installed on your system.
+- Required dependencies can be installed using:
+
+    ```bash
+    pip install pandas sqlite3
+    ```
+
+## Setup
+
+1. Ensure the CSV files (`winequality-red.csv` and `winequality-white.csv`) are located in the specified paths.
+
+2. Run the script to create and load tables:
+
+    ```bash
+    python setup_database.py
+    ```
+
+    - The script iterates through each CSV file, creates tables dynamically, and loads data into the SQLite database.
+    
+    - Tables are renamed based on a naming convention and columns are sanitized.
+
+    - Any errors encountered during the process will be displayed.
+
+3. Optionally, review the printed messages to verify successful table creation and renaming.
+
+4. Commit the changes to the database by uncommenting the last lines in the script:
+
+    ```python
+    # Commit the changes to the database
+    conn.commit()
+    
+    # Fetch and print the results (optional)
+    rows = cursor.fetchall()
+    
+    # Close the cursor
+    cursor.close()
+    
+    # Close the connection to the database
+    conn.close()
+    ```
+
+5. The SQLite database `wine.db` now contains tables with standardized names for red and white wine data.
+
+## Notes
+
+- Adjust file paths and names as needed in the script.
+
+- Ensure the script has the necessary permissions to create and modify the database.
+
+- The final database is ready for further analysis or integration into your project.
